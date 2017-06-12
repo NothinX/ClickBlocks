@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickBlocksClient", "ClickBlocksClient\ClickBlocksClient.csproj", "{401DEE4A-4CAE-49A9-BCA4-03CCA3F7EC80}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickBlocksServer", "ClickBlocksServer\ClickBlocksServer.csproj", "{06E5D60D-7546-4930-8D2E-07598A26E112}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{401DEE4A-4CAE-49A9-BCA4-03CCA3F7EC80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{401DEE4A-4CAE-49A9-BCA4-03CCA3F7EC80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{401DEE4A-4CAE-49A9-BCA4-03CCA3F7EC80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06E5D60D-7546-4930-8D2E-07598A26E112}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06E5D60D-7546-4930-8D2E-07598A26E112}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06E5D60D-7546-4930-8D2E-07598A26E112}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06E5D60D-7546-4930-8D2E-07598A26E112}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
