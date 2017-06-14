@@ -40,6 +40,10 @@ namespace ClickBlocksClient
         private async void PlayPage_Loaded(object sender, RoutedEventArgs e)
         {
             MWindow.Title = Title;
+            var score = 0;
+            var q=Client.GetRecordList(gameMode, UserName).OrderBy(x=>x.Score);
+            if (q.Count() > 0) score = q.Last().Score;
+            GameScoreLabel.Content = string.Format("{0}分", score);
             game = new ClickBlocksGame();
             PlayBorder.Child = game.Playground;
             (PlayBorder.Child as Grid).Focus();
@@ -47,6 +51,16 @@ namespace ClickBlocksClient
             while (true)
             {
                 await GameStart();
+                if (game.Score > 0)
+                {
+                    UserPoints++;
+                }
+                else
+                {
+                    UserPoints--;
+                }
+                Client.UploadPoints(UserName, UserPoints);
+                Client.UploadScore(UserName, gameMode, game.Score, DateTime.Now);
                 if ((await MWindow.ShowMessage(string.Format("本次得分是{0}\n是否再次挑战？", game.Score), "游戏结束", true) == DialogsResult.确定))
                 {
                     game.ReStart(true);

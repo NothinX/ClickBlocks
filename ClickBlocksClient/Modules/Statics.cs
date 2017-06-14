@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClickBlocksClient.ServiceReference;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,10 @@ namespace ClickBlocksClient
         /// 当前登录用户积分
         /// </summary>
         internal static int UserPoints { get; set; }
+        /// <summary>
+        /// 当前客户端
+        /// </summary>
+        internal static ClickBlocksServiceClient Client { get; set; }
         /// <summary>
         /// 对话框返回的结果
         /// </summary>

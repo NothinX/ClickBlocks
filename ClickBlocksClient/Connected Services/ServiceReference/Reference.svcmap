@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="20dfb448-2265-4e7a-a2cc-b22674558889" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:54423/ClickBlocksService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ClickBlocksService.xsd" MetadataType="Schema" ID="501f9c48-aaa8-4861-af31-5bcc409b7d91" SourceId="1" SourceUrl="http://localhost:54423/ClickBlocksService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ClickBlocksService1.xsd" MetadataType="Schema" ID="09e820a8-aa1f-4648-9c35-fef1bf889030" SourceId="1" SourceUrl="http://localhost:54423/ClickBlocksService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ClickBlocksService.disco" MetadataType="Disco" ID="ece32c39-1a4e-403a-bb1f-7e7ec9d04161" SourceId="1" SourceUrl="http://localhost:54423/ClickBlocksService.svc?disco" />
+    <MetadataFile FileName="ClickBlocksService.wsdl" MetadataType="Wsdl" ID="7c9e57c0-e778-4bef-add3-4a0b3223eccf" SourceId="1" SourceUrl="http://localhost:54423/ClickBlocksService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="ClickBlocksService2.xsd" MetadataType="Schema" ID="0247bf64-21d6-4ba3-88e1-7016ff17304b" SourceId="1" SourceUrl="http://localhost:54423/ClickBlocksService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ClickBlocksService1.wsdl" MetadataType="Wsdl" ID="953c908c-4958-48c9-bd9f-22dfbd99090d" SourceId="1" SourceUrl="http://localhost:54423/ClickBlocksService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -67,7 +67,7 @@ namespace ClickBlocksClient
         /// </summary>
         /// <param name="strData"></param>
         /// <returns></returns>
-        public string GetSHA512Hash(string strData)
+        public static string GetSHA512Hash(string strData)
         {
             byte[] bytValue = System.Text.Encoding.UTF8.GetBytes(strData);
             try

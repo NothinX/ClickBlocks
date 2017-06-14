@@ -40,6 +40,7 @@ namespace ClickBlocksClient
             InitializeComponent();
             Loaded += MainWindow_Loaded;
             MWindow = this;
+            Client = new ServiceReference.ClickBlocksServiceClient();
             isDialogReturn = false;
             aDialogsResult = DialogsResult.确定;
             NewPage(new MainPage());

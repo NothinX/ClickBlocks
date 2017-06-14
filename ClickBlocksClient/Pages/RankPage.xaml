@@ -25,14 +25,25 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <TextBlock Text="账号" FontSize="17" Foreground="{DynamicResource themeBrush}" Grid.Column="0" Margin="5 2.5 5 2.5"/>
-            <TextBlock Text="分数" FontSize="17" Foreground="{DynamicResource themeBrush}" Grid.Column="1" Margin="5 2.5 5 2.5"/>
+            <TextBlock Text="账号" FontSize="17" Foreground="{DynamicResource themeBrush}" Grid.Column="0" Margin="7.5 5 7.5 5"/>
+            <TextBlock Text="分数" FontSize="17" Foreground="{DynamicResource themeBrush}" Grid.Column="1" Margin="7.5 5 7.5 5"/>
             <GridSplitter Height="2" Background="{DynamicResource themeBrush}" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
             <GridSplitter Width="2" Background="{DynamicResource themeBrush}" Grid.Column="0" HorizontalAlignment="Left"/>
             <GridSplitter Width="2" Background="{DynamicResource themeBrush}" Grid.Column="1" HorizontalAlignment="Right"/>
         </Grid>
         <ListBox Name="RankList" FontSize="17" Grid.Row="2" Grid.ColumnSpan="2" Margin="5 0 5 0" Style="{DynamicResource listBox}">
-
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="140"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding UserName}" FontSize="17" Foreground="{DynamicResource themeBrush}" Margin="7.5 5 7.5 5" Grid.Column="0"/>
+                        <TextBlock Text="{Binding Score,StringFormat={}{0:d}}" FontSize="17" Foreground="{DynamicResource themeBrush}" Margin="7.5 5 7.5 5" Grid.Column="1"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
     </Grid>
 </Page>

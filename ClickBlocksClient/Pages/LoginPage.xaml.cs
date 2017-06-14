@@ -21,7 +21,7 @@ namespace ClickBlocksClient
     /// </summary>
     public partial class LoginPage : Page
     {
-        public LoginPage(bool isRegister=false)
+        public LoginPage(bool isRegister = false)
         {
             InitializeComponent();
             if (isRegister)
@@ -43,10 +43,10 @@ namespace ClickBlocksClient
 
         private async void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (Title=="登录")
+            if (Title == "登录")
             {
                 await LoginingAsync();
-            } 
+            }
             else if (Title == "注册")
             {
                 await RegisteringAsync();
@@ -67,9 +67,21 @@ namespace ClickBlocksClient
             }
             else
             {
-                UserName = UsernameText.Text;
-                UserPoints = 0;
-                MWindow.NewPage(new MainPage());
+                bool res = Client.Register(UsernameText.Text, Security.GetSHA512Hash(PasswordText.Password));
+                if (res)
+                {
+                    UserName = UsernameText.Text;
+                    UserPoints = 0;
+                    MWindow.NewPage(new MainPage());
+                }
+                else
+                {
+                    await MWindow.ShowMessage("账号已存在！", "错误");
+                    UsernameText.Clear();
+                    PasswordText.Clear();
+                    PasswordText.Focus();
+                    UsernameText.Focus();
+                }
             }
         }
 
@@ -87,9 +99,21 @@ namespace ClickBlocksClient
             }
             else
             {
-                UserName = UsernameText.Text;
-                UserPoints = 0;
-                MWindow.NewPage(new MainPage());
+                int res = Client.Login(UsernameText.Text, Security.GetSHA512Hash(PasswordText.Password));
+                if (res != -1)
+                {
+                    UserName = UsernameText.Text;
+                    UserPoints = res;
+                    MWindow.NewPage(new MainPage());
+                }
+                else
+                {
+                    await MWindow.ShowMessage("账号或密码错误！", "错误");
+                    UsernameText.Clear();
+                    PasswordText.Clear();
+                    PasswordText.Focus();
+                    UsernameText.Focus();
+                }
             }
         }
 

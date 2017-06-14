@@ -49,12 +49,29 @@ namespace ClickBlocksClient
             RankRangeCbBox.SelectedIndex = 0;
         }
 
-        private async void RankRangeCbBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void RankRangeCbBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (RankRangeCbBox.SelectedIndex == -1) return;
             else
             {
-                await Task.Delay(1);
+                if (RankModeCbBox.SelectedValue as string == "总积分")
+                {
+                    var list = Client.GetPeopleList();
+                    RankList.ItemsSource = list.OrderByDescending(x => x.Score).Take(100);
+                }
+                else
+                {
+                    if (RankRangeCbBox.SelectedValue as string == "个人")
+                    {
+                        var list = Client.GetRecordList(RankModeCbBox.SelectedValue as string, UserName);
+                        RankList.ItemsSource = list.OrderByDescending(x => x.Score).Take(100);
+                    }
+                    else
+                    {
+                        var list = Client.GetRecordList(RankModeCbBox.SelectedValue as string, null);
+                        RankList.ItemsSource = list.OrderByDescending(x => x.Score).Take(100);
+                    }
+                }
             }
         }
     }
