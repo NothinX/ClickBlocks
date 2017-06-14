@@ -3,7 +3,6 @@
                     xmlns:local="clr-namespace:ClickBlocksClient.Dictionarys">
     <SolidColorBrush x:Key="Button.Color.Red" Color="#FFE81123"/>
     <SolidColorBrush x:Key="Button.Color.Blue" Color="#FF0063B1"/>
-    <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3399FF"/>
     <Style x:Key="keyButton" TargetType="{x:Type Button}">
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -13,12 +12,6 @@
                     <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
                         <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                     </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="true">
-                            <Setter Property="BorderThickness" TargetName="border" Value="3"/>
-                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

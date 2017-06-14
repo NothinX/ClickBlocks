@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ClickBlocksClient"
       mc:Ignorable="d" 
-      d:DesignHeight="537.5" d:DesignWidth="350"
+      d:DesignHeight="477" d:DesignWidth="350"
       Title="ClickBlocks" Background="White">
 
     <Grid>

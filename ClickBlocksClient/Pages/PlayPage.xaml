@@ -5,11 +5,14 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ClickBlocksClient"
       mc:Ignorable="d" 
-      d:DesignHeight="537.5" d:DesignWidth="350"
-      Title="游戏" Background="White">
+      d:DesignHeight="477" d:DesignWidth="350"
+      Title="游戏" Background="White" Height="477" Width="350">
 
     <Grid Background="{DynamicResource themeBrush}">
-        <Grid Grid.Row="0" Background="DarkGreen">
+        <Grid Grid.Row="0">
+            <Grid.Background>
+                <ImageBrush ImageSource="/ClickBlocksClient;component/Background.jpg" TileMode="FlipXY" Stretch="UniformToFill"/>
+            </Grid.Background>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -23,7 +26,7 @@
 
             </Border>
         </Grid>
-        <Grid Name="GameInfo" Background="{DynamicResource themeBrush}" Height="115.44" VerticalAlignment="Bottom">
+        <Grid Name="GameInfo" Background="{DynamicResource themeBrush}" Height="120" VerticalAlignment="Bottom">
             <Grid Margin="25 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition />

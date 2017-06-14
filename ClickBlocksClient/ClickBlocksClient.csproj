@@ -100,6 +100,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modules\ClickBlocksGame.cs" />
     <Compile Include="Modules\Functions.cs" />
     <Compile Include="Modules\Statics.cs" />
     <Compile Include="Modules\UI\PathGrid.cs" />
@@ -139,6 +140,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Background.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

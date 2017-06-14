@@ -5,35 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClickBlocksClient"
         mc:Ignorable="d"
-        Title="ClickBlocks" Height="568.5" Width="352" Name="window" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Title="ClickBlocks" Height="508" Width="352" Name="window" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="30" GlassFrameThickness="1" ResizeBorderThickness="7" CornerRadius="0"/>
     </WindowChrome.WindowChrome>
     <Border Name="WindowBorder">
         <Border BorderThickness="1" BorderBrush="{DynamicResource themeBrush}">
-            <DockPanel>
-                <DockPanel Name="CaptionDock" Background="{DynamicResource themeBrush}" Height="30" DockPanel.Dock="Top">
-                    <Button Name="BackBtn" DockPanel.Dock="Left" Style="{StaticResource windowCaptionButton}" Click="BackBtn_Click" Visibility="Collapsed" ToolTip="返回">
-                        <Viewbox Name="BackBtnView" Height="12.5" Width="12.5"/>
-                    </Button>
-                    <TextBlock Name="TitleText" Text="{Binding Title,ElementName=window}" FontSize="15" Foreground="White" VerticalAlignment="Center" Margin="5 -1 0 0" DockPanel.Dock="Left"/>
-                    <Button Name="CloseBtn" Style="{StaticResource windowCloseButton}" Click="CloseBtn_Click" ToolTip="关闭">
-                        <Grid>
-                            <Line Stroke="White" StrokeThickness="2" X2="10" Y2="10" SnapsToDevicePixels="True"/>
-                            <Line Stroke="White" StrokeThickness="2" X2="10" Y1="10" SnapsToDevicePixels="True"/>
-                        </Grid>
-                    </Button>
-                    <Button Name="MiniBtn" Style="{StaticResource windowCaptionButton}" Click="MiniBtn_Click" ToolTip="最小化">
-                        <Grid>
-                            <Line X2="10" Stroke="White" StrokeThickness="2" SnapsToDevicePixels="True"/>
-                        </Grid>
-                    </Button>
-                    <Button Name="LogoutBtn" Click="LogoutBtn_Click" Style="{StaticResource windowCaptionButton}" Visibility="Collapsed" ToolTip="注销">
-                        <Viewbox Name="LogoutBtnView" Height="15" Width="15"/>
-                    </Button>
-                    <Grid />
-                </DockPanel>
-                <Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1">
                     <Frame Name="MainFrame" NavigationUIVisibility="Hidden" local:DisableNavigation.Disable="True"/>
                     <Grid Name="DialogsGrid" MaxHeight="{Binding Height,ElementName=MainFrame}" MaxWidth="{Binding Width,ElementName=MainFrame}" IsEnabled="False" Visibility="Hidden">
                         <Border BorderBrush="{DynamicResource themeBrush}" BorderThickness="1" Background="White" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -57,7 +40,28 @@
                         </Border>
                     </Grid>
                 </Grid>
-            </DockPanel>
+                <DockPanel Name="CaptionDock" Background="{DynamicResource themeBrush}" Height="30" Grid.Row="0">
+                    <Button Name="BackBtn" DockPanel.Dock="Left" Style="{StaticResource windowCaptionButton}" Click="BackBtn_Click" Visibility="Collapsed" ToolTip="返回">
+                        <Viewbox Name="BackBtnView" Height="12.5" Width="12.5"/>
+                    </Button>
+                    <TextBlock Name="TitleText" Text="{Binding Title,ElementName=window}" FontSize="15" Foreground="White" VerticalAlignment="Center" Margin="5 -1 0 0" DockPanel.Dock="Left"/>
+                    <Button Name="CloseBtn" Style="{StaticResource windowCloseButton}" Click="CloseBtn_Click" ToolTip="关闭">
+                        <Grid>
+                            <Line Stroke="White" StrokeThickness="2" X2="10" Y2="10" SnapsToDevicePixels="True"/>
+                            <Line Stroke="White" StrokeThickness="2" X2="10" Y1="10" SnapsToDevicePixels="True"/>
+                        </Grid>
+                    </Button>
+                    <Button Name="MiniBtn" Style="{StaticResource windowCaptionButton}" Click="MiniBtn_Click" ToolTip="最小化">
+                        <Grid>
+                            <Line X2="10" Stroke="White" StrokeThickness="2" SnapsToDevicePixels="True"/>
+                        </Grid>
+                    </Button>
+                    <Button Name="LogoutBtn" Click="LogoutBtn_Click" Style="{StaticResource windowCaptionButton}" Visibility="Collapsed" ToolTip="注销">
+                        <Viewbox Name="LogoutBtnView" Height="15" Width="15"/>
+                    </Button>
+                    <Grid />
+                </DockPanel>
+            </Grid>
         </Border>
     </Border>
 </Window>
