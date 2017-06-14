@@ -133,7 +133,7 @@
     <Style x:Key="listBox" TargetType="{x:Type ListBox}">
         <Setter Property="Background" Value="White"/>
         <Setter Property="BorderBrush" Value="{DynamicResource themeBrush}"/>
-        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="BorderThickness" Value="2 0 2 2"/>
         <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
