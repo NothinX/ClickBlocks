@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -54,6 +55,38 @@ namespace ClickBlocksClient
         public static void DontNavigate(object sender, NavigationEventArgs e)
         {
             ((Frame)sender).NavigationService.RemoveBackEntry();
+        }
+    }
+    /// <summary>
+    /// Security模块
+    /// </summary>
+    class Security
+    {
+        /// <summary>
+        /// SHA512加密
+        /// </summary>
+        /// <param name="strData"></param>
+        /// <returns></returns>
+        public string GetSHA512Hash(string strData)
+        {
+            byte[] bytValue = System.Text.Encoding.UTF8.GetBytes(strData);
+            try
+            {
+                SHA512 sha512 = new SHA512CryptoServiceProvider();
+                byte[] retVal = sha512.ComputeHash(bytValue);
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < retVal.Length; i++)
+                {
+                    sb.Append(retVal[i].ToString("x"));
+                }
+                sha512.Clear();
+                return Convert.ToBase64String(retVal);
+                //return sb.ToString();
+            }
+            catch (Exception ex)
+            {
+                throw ex; 
+            }
         }
     }
 }

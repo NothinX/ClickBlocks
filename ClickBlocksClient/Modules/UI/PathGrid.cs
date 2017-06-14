@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
@@ -29,7 +30,8 @@ namespace ClickBlocksClient.UI
             {
                 Source = new Uri("/Dictionarys/pathDictionary.xaml", UriKind.Relative)
             };
-            Grid grid = (Grid)dictionary[name];
+            string xaml = XamlWriter.Save(dictionary[name] as Grid);
+            Grid grid = XamlReader.Parse(xaml) as Grid;
             if (isThinkness)
             {
                 grid.Margin = GetThickness(name);
@@ -56,7 +58,8 @@ namespace ClickBlocksClient.UI
             {
                 Source = new Uri("/Dictionarys/pathDictionary.xaml", UriKind.Relative)
             };
-            Grid grid = (Grid)dictionary[name];
+            string xaml = XamlWriter.Save(dictionary[name] as Grid);
+            Grid grid = XamlReader.Parse(xaml) as Grid;
             grid.Margin = GetThickness(name + "_" + where);
             foreach (var item in grid.Children)
             {

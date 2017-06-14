@@ -9,8 +9,27 @@
       Title="登录" Background="White">
 
     <Grid>
-        <Grid>
-            <TextBlock Text="登录" FontSize="50"/>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="{DynamicResource themeBrush}">
+            <TextBlock Text="ClickBlocks" FontSize="55" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Grid Margin="0 30 0 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <TextBox Name="UsernameText" MaxLines="1" Visibility="Hidden" Width="250" Height="40" VerticalContentAlignment="Center" FontSize="20" Grid.Row="0" Style="{StaticResource textbox}" LostFocus="UsernameText_LostFocus"/>
+                    <TextBox Name="VUsernameText" MaxLines="1" Text="账号" Foreground="Gray" Width="250" VerticalContentAlignment="Center" Height="40" FontSize="20" Grid.Row="0" Style="{StaticResource textbox}" GotFocus="VUsernameText_GotFocus"/>
+                    <TextBox Name="VPasswordText" MaxLines="1" Text="密码" Foreground="Gray" Width="250" VerticalContentAlignment="Center" Height="40" FontSize="20" Grid.Row="1" Style="{StaticResource textbox}" GotFocus="VPasswordText_GotFocus"/>
+                    <PasswordBox Name="PasswordText" Visibility="Hidden" Width="250" Height="40" VerticalContentAlignment="Center" FontSize="20" Grid.Row="1" LostFocus="PasswordText_LostFocus" Style="{StaticResource passwordbox}" KeyDown="PasswordText_KeyDown"/>
+                </Grid>
+                <Button Name="LoginBtn" Content="登录" FontSize="20" Width="250" Margin="0 10 0 0" Padding="5" Style="{StaticResource themeBrushButton}" Click="LoginBtn_Click" ToolTip="登录"/>
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>

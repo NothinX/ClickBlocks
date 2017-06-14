@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static ClickBlocksClient.App;
+using static ClickBlocksClient.Statics;
 
 namespace ClickBlocksClient
 {
@@ -30,6 +30,37 @@ namespace ClickBlocksClient
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
             MWindow.Title = Title;
+            if (UserName!=null)
+            {
+                UserNameText.Text = UserName;
+                AfterLoginGrid.Visibility = Visibility.Visible;
+                BeforeLoginGrid.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                AfterLoginGrid.Visibility = Visibility.Collapsed;
+                BeforeLoginGrid.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void LoginBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MWindow.NewPage(new LoginPage());
+        }
+
+        private void RegisterBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MWindow.NewPage(new LoginPage(true));
+        }
+
+        private void PlayBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MWindow.NewPage(new PlayPage());
+        }
+
+        private void RankBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MWindow.NewPage(new RankPage());
         }
     }
 }
