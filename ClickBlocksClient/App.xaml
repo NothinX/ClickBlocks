@@ -4,6 +4,13 @@
              xmlns:local="clr-namespace:ClickBlocksClient"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary x:Name="mainWindowDictionary" Source="/Dictionarys/MainWindowDictionary.xaml"/>
+                <ResourceDictionary x:Name="playgroundDictionary" Source="/Dictionarys/PlaygroundDictionary.xaml"/>
+                <ResourceDictionary x:Name="pathDictionary" Source="/Dictionarys/PathDictionary.xaml"/>
+                <ResourceDictionary x:Name="dialogDictionary" Source="/Dictionarys/DialogDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

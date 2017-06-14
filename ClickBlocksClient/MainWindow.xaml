@@ -5,8 +5,56 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClickBlocksClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        Title="ClickBlocks" Height="600" Width="365" Name="window" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="30" GlassFrameThickness="1" ResizeBorderThickness="7" CornerRadius="0"/>
+    </WindowChrome.WindowChrome>
+    <Border Name="WindowBorder">
+        <Border BorderThickness="1" BorderBrush="{DynamicResource themeBrush}">
+            <DockPanel>
+                <DockPanel Name="CaptionDock" Background="{DynamicResource themeBrush}" Height="30" DockPanel.Dock="Top">
+                    <Button Name="BackBtn" DockPanel.Dock="Left" Style="{StaticResource windowCaptionButton}" Click="BackBtn_Click" Visibility="Collapsed" ToolTip="返回">
+                        <Viewbox Name="BackBtnView" Height="12.5" Width="12.5"/>
+                    </Button>
+                    <TextBlock Name="TitleText" Text="{Binding Title,ElementName=window}" FontSize="20" Foreground="White" VerticalAlignment="Center" Margin="5 0 0 0" DockPanel.Dock="Left"/>
+                    <Button Name="CloseBtn" Style="{StaticResource windowCloseButton}" Click="CloseBtn_Click" ToolTip="关闭">
+                        <Grid>
+                            <Line Stroke="White" StrokeThickness="2" X2="10" Y2="10" SnapsToDevicePixels="True"/>
+                            <Line Stroke="White" StrokeThickness="2" X2="10" Y1="10" SnapsToDevicePixels="True"/>
+                        </Grid>
+                    </Button>
+                    <Button Name="MiniBtn" Style="{StaticResource windowCaptionButton}" Click="MiniBtn_Click" ToolTip="最小化">
+                        <Grid>
+                            <Line X2="10" Stroke="White" StrokeThickness="2" SnapsToDevicePixels="True"/>
+                        </Grid>
+                    </Button>
+                    <Grid />
+                </DockPanel>
+                <Grid>
+                    <Frame Name="MainFrame" Height="537.5" Width="350" NavigationUIVisibility="Hidden" local:DisableNavigation.Disable="True"/>
+                    <Grid Name="DialogsGrid" MaxHeight="{Binding Height,ElementName=MainFrame}" MaxWidth="{Binding Width,ElementName=MainFrame}" IsEnabled="False" Visibility="Hidden">
+                        <Border BorderBrush="{DynamicResource themeBrush}" BorderThickness="1" Background="White" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Border.Effect>
+                                <DropShadowEffect Opacity="0.5" BlurRadius="10" Direction="-45" ShadowDepth="5"/>
+                            </Border.Effect>
+                            <Grid>
+                                <Grid Name="MessageGrid" HorizontalAlignment="Center" VerticalAlignment="Center" MinHeight="200" MinWidth="300" Background="White" Visibility="Hidden" KeyDown="MessageGrid_KeyDown">
+                                    <DockPanel Margin="30">
+                                        <TextBlock Name="MessageTitleTextBlock" Text="提示标题" FontSize="20" DockPanel.Dock="Top" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                        <Grid DockPanel.Dock="Bottom" Width="240" HorizontalAlignment="Right">
+                                            <Button Name="MessageCancelButton" Content="取消" FontSize="17" Padding="40 5" HorizontalAlignment="Left" Style="{StaticResource themeBrushButton}" Click="MessageCancel_Click" ToolTip="取消" Visibility="Hidden"/>
+                                            <Button Name="MessageOKButton" Content="确定" FontSize="17" Padding="40 5" HorizontalAlignment="Right" Style="{StaticResource themeBrushButton}" Click="MessageOK_Click" ToolTip="确定"/>
+                                        </Grid>
+                                        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0 10 0 10">
+                                            <TextBlock Name="MessageTextTextBlock" Text="提示" Padding="0" LineHeight="25" FontSize="17" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="WrapWithOverflow"/>
+                                        </ScrollViewer>
+                                    </DockPanel>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Grid>
+            </DockPanel>
+        </Border>
+    </Border>
 </Window>

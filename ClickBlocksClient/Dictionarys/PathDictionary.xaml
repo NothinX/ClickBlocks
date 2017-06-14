@@ -1,0 +1,7 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:ClickBlocksClient.Dictionarys">
+    <Grid x:Key="leftArrowPath">
+        <Path Data="M1024 447.67083 243.021308 447.67083l358.136664-358.136664L511.623806 0 0 511.623806l511.623806 511.623806 89.534166-89.534166L243.021308 575.576782l780.226304 0L1023.247612 447.67083z"/>
+    </Grid>
+</ResourceDictionary>

@@ -13,5 +13,17 @@ namespace ClickBlocksClient
     /// </summary>
     public partial class App : Application
     {
+        /// <summary>
+        /// 运行中的主窗体
+        /// </summary>
+        internal static MainWindow MWindow { get; set; }
+        /// <summary>
+        /// 对话框返回的结果
+        /// </summary>
+        public enum DialogsResult
+        {
+            确定,
+            取消
+        }
     }
 }
