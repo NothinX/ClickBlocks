@@ -25,7 +25,10 @@
             </Grid>
             <Grid Name="AfterLoginGrid">
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top">
-                    <TextBlock Name="UserNameText" Text="Nothin" FontSize="25" Foreground="{DynamicResource themeBrush}" Margin="0 30 0 0" HorizontalAlignment="Center"/>
+                    <StackPanel Orientation="Horizontal"  Margin="0 30 0 0" HorizontalAlignment="Center">
+                        <TextBlock Name="UserNameText" Text="Nothin" FontSize="25" Foreground="{DynamicResource themeBrush}" HorizontalAlignment="Center"/>
+                        <TextBlock Name="UserPointsText" Text="1000" FontSize="25" Foreground="{DynamicResource themeBrush}" Margin="10 0 0 0" HorizontalAlignment="Center"/>
+                    </StackPanel>
                     <Button Name="PlayBtn" Content="开始" FontSize="20" Width="250" Margin="0 10 0 0" Padding="5" Style="{StaticResource themeBrushButton}" Click="PlayBtn_Click" ToolTip="开始"/>
                     <Button Name="RankBtn" Content="排行" FontSize="20" Width="250" Margin="0 10 0 0" Padding="5" Style="{StaticResource themeBrushButton}" Click="RankBtn_Click" ToolTip="排行"/>
                 </StackPanel>

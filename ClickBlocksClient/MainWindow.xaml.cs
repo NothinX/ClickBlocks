@@ -42,12 +42,13 @@ namespace ClickBlocksClient
             MWindow = this;
             isDialogReturn = false;
             aDialogsResult = DialogsResult.确定;
-            NewPage(new MainPage()); 
+            NewPage(new MainPage());
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             BackBtnView.Child = PathGrid.GetPathGrid("leftArrowPath", Colors.White);
+            LogoutBtnView.Child = PathGrid.GetPathGrid("logoutPath", Colors.White);
         }
         /// <summary>
         /// 更新页面
@@ -58,12 +59,15 @@ namespace ClickBlocksClient
             if (page is MainPage)
             {
                 BackBtn.Visibility = Visibility.Collapsed;
+                if (UserName != null) LogoutBtn.Visibility = Visibility.Visible;
+                else LogoutBtn.Visibility = Visibility.Collapsed;
                 BackPages = new Stack<Page>();
             }
             else
             {
                 BackPages.Push((Page)MainFrame.Content);
                 BackBtn.Visibility = Visibility.Visible;
+                LogoutBtn.Visibility = Visibility.Collapsed;
             }
             MainFrame.Content = page;
         }
@@ -72,7 +76,17 @@ namespace ClickBlocksClient
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
             ClearDialogs();
-            MainFrame.Content = BackPages.Pop();
+            Page p = BackPages.Pop();
+            MainFrame.Content = p;
+            if (p is MainPage)
+            {
+                if (UserName != null) LogoutBtn.Visibility = Visibility.Visible;
+                else LogoutBtn.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                LogoutBtn.Visibility = Visibility.Collapsed;
+            }
             if (BackPages.Count == 0) BackBtn.Visibility = Visibility.Collapsed;
         }
 
@@ -84,6 +98,14 @@ namespace ClickBlocksClient
         private void CloseBtn_Click(object sender, RoutedEventArgs e)
         {
             App.Current.Shutdown();
+        }
+
+        private async void LogoutBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ClearDialogs();
+            if (await ShowMessage("是否确定要注销？", "注销", true) == DialogsResult.取消) return;
+            UserName = null;
+            NewPage(new MainPage());
         }
         #endregion
 

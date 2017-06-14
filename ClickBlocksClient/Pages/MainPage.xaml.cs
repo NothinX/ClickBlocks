@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClickBlocksClient.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +34,7 @@ namespace ClickBlocksClient
             if (UserName!=null)
             {
                 UserNameText.Text = UserName;
+                UserPointsText.Text = string.Format("{0}分", UserPoints); 
                 AfterLoginGrid.Visibility = Visibility.Visible;
                 BeforeLoginGrid.Visibility = Visibility.Collapsed;
             }
@@ -55,7 +57,7 @@ namespace ClickBlocksClient
 
         private void PlayBtn_Click(object sender, RoutedEventArgs e)
         {
-            MWindow.NewPage(new PlayPage());
+            MWindow.NewPage(new PlayPage("无尽模式"));
         }
 
         private void RankBtn_Click(object sender, RoutedEventArgs e)

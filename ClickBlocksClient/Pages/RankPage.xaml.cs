@@ -30,6 +30,32 @@ namespace ClickBlocksClient
         private void RankPage_Loaded(object sender, RoutedEventArgs e)
         {
             MWindow.Title = Title;
+            RankModeCbBox.ItemsSource = R.GetString("RankModes").Split('#');
+            RankRangeCbBox.ItemsSource = R.GetString("RankRange").Split('#');
+            RankModeCbBox.SelectedIndex = RankRangeCbBox.SelectedIndex = 0;
+        }
+
+        private void RankModeCbBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (RankModeCbBox.SelectedIndex == -1) return;
+            if (RankModeCbBox.SelectedValue as string == "总积分")
+            {
+                RankRangeCbBox.ItemsSource = new string[] { "全球" };
+            }
+            else
+            {
+                RankRangeCbBox.ItemsSource = R.GetString("RankRange").Split('#');
+            }
+            RankRangeCbBox.SelectedIndex = 0;
+        }
+
+        private async void RankRangeCbBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (RankRangeCbBox.SelectedIndex == -1) return;
+            else
+            {
+                await Task.Delay(1);
+            }
         }
     }
 }

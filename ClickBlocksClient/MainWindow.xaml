@@ -16,7 +16,7 @@
                     <Button Name="BackBtn" DockPanel.Dock="Left" Style="{StaticResource windowCaptionButton}" Click="BackBtn_Click" Visibility="Collapsed" ToolTip="返回">
                         <Viewbox Name="BackBtnView" Height="12.5" Width="12.5"/>
                     </Button>
-                    <TextBlock Name="TitleText" Text="{Binding Title,ElementName=window}" FontSize="20" Foreground="White" VerticalAlignment="Center" Margin="5 0 0 0" DockPanel.Dock="Left"/>
+                    <TextBlock Name="TitleText" Text="{Binding Title,ElementName=window}" FontSize="15" Foreground="White" VerticalAlignment="Center" Margin="5 -1 0 0" DockPanel.Dock="Left"/>
                     <Button Name="CloseBtn" Style="{StaticResource windowCloseButton}" Click="CloseBtn_Click" ToolTip="关闭">
                         <Grid>
                             <Line Stroke="White" StrokeThickness="2" X2="10" Y2="10" SnapsToDevicePixels="True"/>
@@ -27,6 +27,9 @@
                         <Grid>
                             <Line X2="10" Stroke="White" StrokeThickness="2" SnapsToDevicePixels="True"/>
                         </Grid>
+                    </Button>
+                    <Button Name="LogoutBtn" Click="LogoutBtn_Click" Style="{StaticResource windowCaptionButton}" Visibility="Collapsed" ToolTip="注销">
+                        <Viewbox Name="LogoutBtnView" Height="15" Width="15"/>
                     </Button>
                     <Grid />
                 </DockPanel>

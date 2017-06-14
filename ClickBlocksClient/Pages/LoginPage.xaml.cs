@@ -68,6 +68,7 @@ namespace ClickBlocksClient
             else
             {
                 UserName = UsernameText.Text;
+                UserPoints = 0;
                 MWindow.NewPage(new MainPage());
             }
         }
@@ -87,6 +88,7 @@ namespace ClickBlocksClient
             else
             {
                 UserName = UsernameText.Text;
+                UserPoints = 0;
                 MWindow.NewPage(new MainPage());
             }
         }

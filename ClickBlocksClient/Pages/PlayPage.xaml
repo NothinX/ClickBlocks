@@ -8,7 +8,36 @@
       d:DesignHeight="537.5" d:DesignWidth="350"
       Title="游戏" Background="White">
 
-    <Grid>
-        <TextBlock Text="游戏" FontSize="50"/>
+    <Grid Background="{DynamicResource themeBrush}">
+        <Grid Grid.Row="0" Background="DarkGreen">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <GridSplitter Width="2" Grid.Column="1" Background="White" HorizontalAlignment="Left"/>
+            <GridSplitter Width="2" Grid.Column="2" Background="White" HorizontalAlignment="Left"/>
+            <GridSplitter Width="2" Grid.Column="3" Background="White" HorizontalAlignment="Left"/>
+            <Border Name="PlayBorder" Grid.ColumnSpan="4">
+
+            </Border>
+        </Grid>
+        <Grid Name="GameInfo" Background="{DynamicResource themeBrush}" Height="115.44" VerticalAlignment="Bottom">
+            <Grid Margin="25 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Label Content="■ 游戏模式：" FontSize="20" Foreground="White" Grid.Row="0" Grid.Column="0"/>
+                <Label Content="■ 最高得分：" FontSize="20" Foreground="White" Grid.Row="1" Grid.Column="0"/>
+                <Label Name="GameModeLabel" FontSize="20" Foreground="White" Grid.Row="0" Grid.Column="1"/>
+                <Label Name="GameScoreLabel" FontSize="20" Foreground="White" Grid.Row="1" Grid.Column="1"/>
+            </Grid>
+        </Grid>
     </Grid>
 </Page>

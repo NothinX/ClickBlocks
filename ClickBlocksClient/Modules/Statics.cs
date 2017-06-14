@@ -20,6 +20,10 @@ namespace ClickBlocksClient
         /// </summary>
         internal static string UserName { get; set; }
         /// <summary>
+        /// 当前登录用户积分
+        /// </summary>
+        internal static int UserPoints { get; set; }
+        /// <summary>
         /// 对话框返回的结果
         /// </summary>
         internal enum DialogsResult

@@ -21,9 +21,12 @@ namespace ClickBlocksClient
     /// </summary>
     public partial class PlayPage : Page
     {
-        public PlayPage()
+        private string gameMode;
+        public PlayPage(string gameMode)
         {
             InitializeComponent();
+            this.gameMode = gameMode;
+            GameModeLabel.Content = gameMode;
             Loaded += PlayPage_Loaded;
         }
 
